@@ -41,3 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 2369531169
+    locked: 0
+  - name: Vision Effect
+    uniqueID: 1842734233
+    locked: 0
+  - name: Gameplay
+    uniqueID: 1055427767
+    locked: 0
