@@ -91,7 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   edges:
-  - {fileID: 1854299704264586306}
+  - {fileID: 0}
 --- !u!1 &2859917303567883809
 GameObject:
   m_ObjectHideFlags: 0
@@ -101,7 +101,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9103854892411919512}
-  - component: {fileID: 1854299704264586306}
+  - component: {fileID: 5133712398247585048}
   m_Layer: 0
   m_Name: ReturnToDecisionEdge
   m_TagString: Untagged
@@ -124,7 +124,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3803552790293049821}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1854299704264586306
+--- !u!114 &5133712398247585048
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,10 +133,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2859917303567883809}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36009ec7df9d2e749a74b0aff5c26c8f, type: 3}
+  m_Script: {fileID: 11500000, guid: a431450dfb1d3814eade4c47bfbf1597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   resultState: {fileID: 7447383092151067248}
+  minimumDelay: 3
+  maximumDelay: 5
 --- !u!1 &2957625726075706661
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,7 +402,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   edges:
-  - {fileID: 1854299704264586306}
+  - {fileID: 0}
 --- !u!1 &4703766350543813829
 GameObject:
   m_ObjectHideFlags: 0
@@ -446,6 +448,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resultState: {fileID: 7447383092151067248}
+  minimumDelay: 1
+  maximumDelay: 3
 --- !u!1 &4808745719359232119
 GameObject:
   m_ObjectHideFlags: 0
@@ -548,6 +552,7 @@ GameObject:
   - component: {fileID: 3733557305998541939}
   - component: {fileID: 211908846376535724}
   - component: {fileID: 2618723646961620925}
+  - component: {fileID: 5837656605376414308}
   - component: {fileID: 8277657716019369049}
   m_Layer: 0
   m_Name: NPC
@@ -670,6 +675,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &5837656605376414308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7469551572084182390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36abf4335ae45b44d9b8cdbe907f8459, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8277657716019369049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -728,6 +745,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resultState: {fileID: 5480558002866967258}
+  meleeDistance: 5
 --- !u!1 &8875924051254974944
 GameObject:
   m_ObjectHideFlags: 0
@@ -773,6 +791,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resultState: {fileID: 2615506523737147525}
+  missileDistance: 20
 --- !u!1 &9160644926074160666
 GameObject:
   m_ObjectHideFlags: 0
@@ -855,4 +874,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   edges:
-  - {fileID: 1854299704264586306}
+  - {fileID: 0}
