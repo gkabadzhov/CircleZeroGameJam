@@ -6,6 +6,8 @@ public class StateMachineBase : MonoBehaviour
 {
     [SerializeField]
     private StateBase   currentState;
+    [SerializeField]
+    private bool        currentlyActive = false;
 
     void Start()
     {
@@ -16,7 +18,7 @@ public class StateMachineBase : MonoBehaviour
 
     void Update()
     {
-        if(currentState == null) return;
+        if(currentState == null || currentlyActive == false) return;
 
         currentState.OnUpdateState();
         StateBase newState = currentState.OnEvaluateEdges();
@@ -28,5 +30,8 @@ public class StateMachineBase : MonoBehaviour
         }
     }
 
-
+    public void SetActive(bool value)
+    {
+        currentlyActive = value;
+    }
 }

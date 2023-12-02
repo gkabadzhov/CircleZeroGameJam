@@ -4,18 +4,33 @@ using UnityEngine;
 
 public class RoamState : StateBase
 {
-    public override void OnStartState()
-    {
-        Debug.Log("RoamState - Start State");
-    }
+    [SerializeField]
+    private float roamSpeed = 1.0f;
+    [SerializeField]
+    private float roamTime = 1.0f;
+    [SerializeField]
+    Vector2 roamPosition = Vector2.left;
 
     public override void OnUpdateState()
     {
-        Debug.Log("RoamState - Update State");
+        AddMoveTask();
+
+        roamPosition = (roamPosition == Vector2.left) ? Vector2.right : Vector2.left;
     }
 
-    public override void OnLeaveState()
+    private void AddMoveTask()
     {
-        Debug.Log("RoamState - Leave State");
+        int test = Random.Range(0, 2);
+        AIMoveTask moveTask = FindObjectOfType<AIMoveTask>();
+
+        AIMoveTaskDescription description = new AIMoveTaskDescription();
+        description.taskedObject = transform.parent.parent.gameObject;
+        description.forwardPosition = roamPosition;
+        description.speed = roamSpeed;
+        description.moveTime = roamTime;
+
+        moveTask.SetDescription(description);
+
+        taskSystem.PushTask(moveTask);
     }
 }
