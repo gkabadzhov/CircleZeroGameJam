@@ -4,18 +4,37 @@ using UnityEngine;
 
 public class AttackState : StateBase
 {
-    public override void OnStartState()
-    {
-        Debug.Log("AttackState - Start State");
-    }
+    [SerializeField]
+    private float minimumForce = 15.0f;
+    [SerializeField]
+    private float dashPowerMultiplier = 2.0f;
+    [SerializeField]
+    private float dashTimer = 1.5f;
+
+    private Vector2 direction = Vector2.zero;
 
     public override void OnUpdateState()
     {
-        Debug.Log("AttackState - Update State");
+        direction = vision.PointOfInterest.transform.position - transform.position;
+
+        direction.Normalize();
+
+        AddDashTask();
     }
 
-    public override void OnLeaveState()
+    private void AddDashTask()
     {
-        Debug.Log("AttackState - Leave State");
+        AIDashTask dashTask = FindObjectOfType<AIDashTask>();
+
+        AIDashTaskDescription description = new AIDashTaskDescription();
+        description.taskedObject = transform.parent.parent.gameObject;
+        description.direction = direction;
+        description.minimumForce = minimumForce;
+        description.dashPowerMultiplier = dashPowerMultiplier;
+        description.dashTimer = dashTimer;
+
+        dashTask.SetDescription(description);
+
+        taskSystem.PushTask(dashTask);
     }
 }
