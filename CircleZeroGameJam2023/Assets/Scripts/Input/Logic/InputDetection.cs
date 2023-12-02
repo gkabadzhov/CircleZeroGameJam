@@ -33,6 +33,15 @@ namespace OTBG.Gameplay.Inputs.Logic
                 return;
 
             DetectInput();
+            MouseButtonInputs();
+        }
+
+        private void MouseButtonInputs()
+        {
+            if(Input.GetMouseButtonDown(0))
+                OnLeftMouseClick?.Invoke();
+            if(Input.GetMouseButtonDown(1)) 
+                OnRightMouseClick?.Invoke();
         }
 
         private void DetectInput()

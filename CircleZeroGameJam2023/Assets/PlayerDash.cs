@@ -1,20 +1,40 @@
 using OTBG.Gameplay.Inputs.Interfaces;
+using OTBG.Gameplay.Player.Movement;
 using OTBG.Utilities.General;
+using Sirenix.OdinInspector;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerDash : MonoBehaviour
 {
+    private PlayerMovement _playerMovement;
     private Camera _cam;
+    private Rigidbody2D _rb;
     private IInputDetector _inputDetector;
+
+    private Coroutine _dashCoroutine;
+
+    [FoldoutGroup("Dash Power"), SerializeField]
+    private float minimumForce;
+    [FoldoutGroup("Dash Power"), SerializeField]
+    private float _dashPowerMultiplier;
+    [FoldoutGroup("Dash Power"), SerializeField]
+    private float _dashTimer;
+    [FoldoutGroup("Cooldown"), SerializeField]
+    private float _dashCooldownTimer;
 
     private void Awake()
     {
+        _playerMovement = GetComponent<PlayerMovement>();
         _inputDetector = UtilityFuncs.FindInterfaceInScene<IInputDetector>();
+        _rb = GetComponent<Rigidbody2D>();
 
-        _inputDetector.OnMousePositionUpdated += _inputDetector_OnMousePositionUpdated;
-        _inputDetector.OnLeftMouseClick += _inputDetector_OnLeftMouseClick;
+        _inputDetector.OnRightMouseClick += OnRightMouseButtonPressed;
+    }
+
+    private void OnDestroy()
+    {
+        _inputDetector.OnRightMouseClick -= OnRightMouseButtonPressed;
     }
 
     private void Start()
@@ -22,14 +42,37 @@ public class PlayerDash : MonoBehaviour
         _cam = Camera.main;
     }
 
-    private void _inputDetector_OnLeftMouseClick()
+    private void OnRightMouseButtonPressed()
     {
-        Vector3 playerViewport = _cam.WorldToViewportPoint(transform.position);
-        //Vector3 mousePosition = Input.mouse
+        if (_dashCoroutine != null)
+            return;
+
+        float dashForce = GetDashForce();
+
+        Vector3 playerViewport = _cam.WorldToScreenPoint(transform.position);
+        Vector3 mousePosition = Input.mousePosition;
+        Vector3 direction = (mousePosition - playerViewport).normalized;
+
+        Dash(direction, dashForce);
     }
 
-    private void _inputDetector_OnMousePositionUpdated(Vector2 obj)
+    public void Dash(Vector3 direction, float dashForce)
     {
-        
+        _rb.velocity = Vector3.zero;
+        _playerMovement.TriggerForceThrow(direction, dashForce, _dashTimer);
+
+        _dashCoroutine = StartCoroutine(DashCooldown());
+    }
+
+    public float GetDashForce()
+    {
+        float currentMagnitude = Mathf.Max(_rb.velocity.magnitude, minimumForce);
+        return currentMagnitude *= _dashPowerMultiplier;   
+    }
+
+    public IEnumerator DashCooldown()
+    {
+        yield return new WaitForSeconds(_dashCooldownTimer);
+        _dashCoroutine = null;
     }
 }

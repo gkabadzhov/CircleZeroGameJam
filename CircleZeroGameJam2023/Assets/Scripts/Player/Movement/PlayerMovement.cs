@@ -204,9 +204,25 @@ namespace OTBG.Gameplay.Player.Movement
             _pauseControlCoroutine = StartCoroutine(PauseControl());
         }
 
-        public void ForceThrow(Vector2 direction, float force)
+        Coroutine _forceThrowCoroutine;
+        public void TriggerForceThrow(Vector2 direction, float force, float timer = 0)
         {
+            if(_forceThrowCoroutine != null)
+            {
+                StopCoroutine(_forceThrowCoroutine);
+                _forceThrowCoroutine = null;
+            }
+            _forceThrowCoroutine = StartCoroutine(ForceThrow(direction, force, timer));
+        }
+
+        public IEnumerator ForceThrow(Vector2 direction, float force, float timer = 0)
+        {
+            _isControlPaused = true;
+            _normalGravity = 2;
             _rb.AddForce(direction * force, ForceMode2D.Impulse);
+            yield return new WaitForSeconds(timer);
+            _normalGravity = 4;
+            _isControlPaused = false;
         }
 
         public void ForceStop()
