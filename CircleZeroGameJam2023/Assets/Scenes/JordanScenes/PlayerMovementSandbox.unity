@@ -1817,9 +1817,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 14295450792465079, guid: fbe4999d8dd172e469435cbd9c85094f, type: 3}
+      propertyPath: m_BiasY
+      value: -0.002
+      objectReference: {fileID: 0}
+    - target: {fileID: 14295450792465079, guid: fbe4999d8dd172e469435cbd9c85094f, type: 3}
+      propertyPath: m_TrackedObjectOffset.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1675055247737166745, guid: fbe4999d8dd172e469435cbd9c85094f, type: 3}
       propertyPath: m_Lens.OrthographicSize
-      value: 10.95
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2686576107480742169, guid: fbe4999d8dd172e469435cbd9c85094f, type: 3}
       propertyPath: _player
@@ -1871,7 +1879,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6906013270612805559, guid: fbe4999d8dd172e469435cbd9c85094f, type: 3}
       propertyPath: orthographic size
-      value: 10.95
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1929,6 +1937,10 @@ PrefabInstance:
     - target: {fileID: 427469538978657125, guid: 7999d3d36042fc64d921a4c2116c7462, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 737010872819880379, guid: 7999d3d36042fc64d921a4c2116c7462, type: 3}
+      propertyPath: _knockbackPower
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

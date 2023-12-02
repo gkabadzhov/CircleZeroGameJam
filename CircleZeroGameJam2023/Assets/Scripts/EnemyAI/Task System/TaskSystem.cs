@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class TaskSystem : MonoBehaviour
 {
-    [SerializeField]
     AITaskBase task;
-    [SerializeField]
     private bool                currentlyActive = false;
 
     // Update is called once per frame

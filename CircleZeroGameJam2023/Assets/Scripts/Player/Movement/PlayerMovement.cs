@@ -247,6 +247,8 @@ namespace OTBG.Gameplay.Player.Movement
             Gizmos.DrawWireSphere(_groundCheckPosition.position, _groundCheckRadius);
         }
 
+        public Rigidbody2D GetRB() => _rb;
+
         public void ApplyModifier(MovementModifier modifier)
         {
             _originalAcceleration = modifier.acceleration;

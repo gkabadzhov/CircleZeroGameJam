@@ -6,6 +6,7 @@ public class StateBase : MonoBehaviour
 {
     [SerializeField]
     private EdgeBase[] edges;
+
     protected TaskSystem taskSystem;
     protected EnemyVision vision;
 

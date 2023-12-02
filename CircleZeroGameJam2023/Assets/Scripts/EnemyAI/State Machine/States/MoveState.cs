@@ -6,6 +6,9 @@ public class MoveState : StateBase
 {
     [SerializeField]
     private float moveSpeed = 1.0f;
+    [SerializeField]
+    private float moveTime = 1.0f;
+
     private Vector2 direction = Vector2.zero;
 
     public override void OnUpdateState()
@@ -25,7 +28,7 @@ public class MoveState : StateBase
         description.taskedObject = transform.parent.parent.gameObject;
         description.forwardPosition = direction;
         description.speed = moveSpeed;
-        description.moveTime = 2.0f;
+        description.moveTime = moveTime;
 
         moveTask.SetDescription(description);
 

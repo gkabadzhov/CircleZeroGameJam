@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class StateMachineBase : MonoBehaviour
 {
-    [SerializeField]
     private StateBase   currentState;
-    [SerializeField]
     private bool        currentlyActive = false;
 
     void Start()
