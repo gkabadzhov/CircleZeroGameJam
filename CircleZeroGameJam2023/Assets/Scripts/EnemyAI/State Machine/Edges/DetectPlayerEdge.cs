@@ -22,7 +22,7 @@ public class DetectPlayerEdge : EdgeBase
             return false;
         }
 
-        EnemyVision vision = GetComponentInParent<EnemyVision>();
+        EnemyVision vision = transform.parent.GetComponentInParent<EnemyVision>();
         if (vision != null)
         {
             vision.PointOfInterest = collider.gameObject;

@@ -6,6 +6,14 @@ public class StateBase : MonoBehaviour
 {
     [SerializeField]
     private EdgeBase[] edges;
+    protected TaskSystem taskSystem;
+    protected EnemyVision vision;
+
+    void Start()
+    {
+        taskSystem  = GetComponentInParent<TaskSystem>();
+        vision      = transform.parent.GetComponentInParent<EnemyVision>();
+    }
 
     public StateBase OnEvaluateEdges()
     {

@@ -10,10 +10,15 @@ public class DelayEdge : EdgeBase
     private float maximumDelay = 5.0f;
 
     private bool result = false;
+    private bool start = false;
 
     public override bool Evaluate()
     {
-        StartCoroutine(Delay());
+        if (start == false)
+        {
+            start = true;
+            StartCoroutine(Delay());
+        }
 
         return result;
     }

@@ -4,18 +4,31 @@ using UnityEngine;
 
 public class MoveState : StateBase
 {
-    public override void OnStartState()
-    {
-        Debug.Log("MoveState - Start State");
-    }
+    [SerializeField]
+    private float moveSpeed = 1.0f;
+    private Vector2 direction = Vector2.zero;
 
     public override void OnUpdateState()
     {
-        Debug.Log("MoveState - Update State");
+        direction = vision.PointOfInterest.transform.position - transform.position;
+
+        direction.Normalize();
+
+        AddMoveTask();
     }
 
-    public override void OnLeaveState()
+    private void AddMoveTask()
     {
-        Debug.Log("MoveState - Leave State");
+        AIMoveTask moveTask = FindObjectOfType<AIMoveTask>();
+
+        AIMoveTaskDescription description = new AIMoveTaskDescription();
+        description.taskedObject = transform.parent.parent.gameObject;
+        description.forwardPosition = direction;
+        description.speed = moveSpeed;
+        description.moveTime = 2.0f;
+
+        moveTask.SetDescription(description);
+
+        taskSystem.PushTask(moveTask);
     }
 }
