@@ -14,8 +14,15 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        _player = FindFirstObjectByType<PlayerController>(FindObjectsInactive.Exclude);
-        _playerCamera = FindFirstObjectByType<CinemachineVirtualCamera>(FindObjectsInactive.Exclude);
+        if(_player == null)
+            _player = FindFirstObjectByType<PlayerController>(FindObjectsInactive.Exclude);
+        if(_playerCamera == null)
+            _playerCamera = FindFirstObjectByType<CinemachineVirtualCamera>(FindObjectsInactive.Exclude);
+    }
+
+    private void Start()
+    {
+        Initialise();
     }
 
     public void Initialise()

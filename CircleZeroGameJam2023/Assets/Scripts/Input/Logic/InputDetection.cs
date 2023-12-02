@@ -15,6 +15,9 @@ namespace OTBG.Gameplay.Inputs.Logic
         public event Action<Vector2> OnDragStart;
         public event Action<Vector2> OnDrag;
         public event Action<Vector2> OnDragEnd;
+        public event Action<Vector2> OnMousePositionUpdated;
+        public event Action OnLeftMouseClick;
+        public event Action OnRightMouseClick;
 
         [FoldoutGroup("Settings")]
         [SerializeField]
@@ -36,6 +39,8 @@ namespace OTBG.Gameplay.Inputs.Logic
         {
             float horizontalState = Input.GetAxisRaw("Horizontal");
             OnHorizontalStateChanged?.Invoke(horizontalState);
+
+            OnMousePositionUpdated?.Invoke(Input.mousePosition);
 
             if (Input.GetButtonDown("Jump"))
             {

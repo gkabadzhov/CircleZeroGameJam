@@ -204,6 +204,11 @@ namespace OTBG.Gameplay.Player.Movement
             _pauseControlCoroutine = StartCoroutine(PauseControl());
         }
 
+        public void ForceThrow(Vector2 direction, float force)
+        {
+            _rb.AddForce(direction * force, ForceMode2D.Impulse);
+        }
+
         public void ForceStop()
         {
             _rb.velocity = Vector3.zero;
@@ -228,6 +233,7 @@ namespace OTBG.Gameplay.Player.Movement
 
         public void ApplyModifier(MovementModifier modifier)
         {
+            _originalAcceleration = modifier.acceleration;
             _acceleration = modifier.acceleration;
             _deceleration = modifier.deceleration;
             _movementResistance = modifier.resistance;
