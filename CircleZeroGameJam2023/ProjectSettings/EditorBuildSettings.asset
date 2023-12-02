@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/JordanScenes/PlayerMovementSandbox.unity
+    guid: 2d88fd89a24643e408180ac12a0bd478
   m_configObjects: {}
