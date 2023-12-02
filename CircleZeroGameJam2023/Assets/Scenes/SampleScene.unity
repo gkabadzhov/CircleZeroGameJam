@@ -179,6 +179,10 @@ PrefabInstance:
       propertyPath: m_CollisionDetection
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2623966770195925323, guid: 7999d3d36042fc64d921a4c2116c7462, type: 3}
+      propertyPath: HorizontalChangeThreshold
+      value: 0.3
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8624415979318902859, guid: 7999d3d36042fc64d921a4c2116c7462, type: 3}
     - {fileID: 3455014716789607377, guid: 7999d3d36042fc64d921a4c2116c7462, type: 3}
@@ -341,6 +345,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 131114288}
     m_Modifications:
+    - target: {fileID: 1675055247737166745, guid: fbe4999d8dd172e469435cbd9c85094f, type: 3}
+      propertyPath: m_Lens.OrthographicSize
+      value: 4.92
+      objectReference: {fileID: 0}
     - target: {fileID: 2715076871197790873, guid: fbe4999d8dd172e469435cbd9c85094f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.2618349
@@ -384,6 +392,10 @@ PrefabInstance:
     - target: {fileID: 3210644488271283738, guid: fbe4999d8dd172e469435cbd9c85094f, type: 3}
       propertyPath: m_Name
       value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6906013270612805559, guid: fbe4999d8dd172e469435cbd9c85094f, type: 3}
+      propertyPath: orthographic size
+      value: 4.92
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
