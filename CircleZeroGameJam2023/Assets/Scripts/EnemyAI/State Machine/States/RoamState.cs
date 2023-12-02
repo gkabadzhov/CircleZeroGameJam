@@ -20,7 +20,6 @@ public class RoamState : StateBase
 
     private void AddMoveTask()
     {
-        int test = Random.Range(0, 2);
         AIMoveTask moveTask = FindObjectOfType<AIMoveTask>();
 
         AIMoveTaskDescription description = new AIMoveTaskDescription();
