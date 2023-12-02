@@ -13,9 +13,11 @@ public class MoveState : StateBase
 
     public override void OnUpdateState()
     {
-        direction = vision.PointOfInterest.transform.position - transform.position;
+        Vector2 rawDirection = vision.PointOfInterest.transform.position - transform.position;
 
-        direction.Normalize();
+        rawDirection.Normalize();
+
+        direction = rawDirection.x > 0 ? Vector2.right : (rawDirection.x < 0 ? Vector2.left : Vector2.zero);
 
         AddMoveTask();
     }
