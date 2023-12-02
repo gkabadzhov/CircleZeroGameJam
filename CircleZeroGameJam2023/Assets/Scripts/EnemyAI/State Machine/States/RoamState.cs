@@ -8,7 +8,7 @@ public class RoamState : StateBase
     private float roamSpeed = 1.0f;
     [SerializeField]
     private float roamTime = 1.0f;
-    [SerializeField]
+
     Vector2 roamPosition = Vector2.left;
 
     public override void OnUpdateState()
@@ -22,11 +22,11 @@ public class RoamState : StateBase
     {
         AIMoveTask moveTask = FindObjectOfType<AIMoveTask>();
 
-        AIMoveTaskDescription description = new AIMoveTaskDescription();
-        description.taskedObject = transform.parent.parent.gameObject;
-        description.forwardPosition = roamPosition;
-        description.speed = roamSpeed;
-        description.moveTime = roamTime;
+        AIMoveTaskDescription description   = new AIMoveTaskDescription();
+        description.taskedObject            = transform.parent.parent.gameObject;
+        description.forwardPosition         = roamPosition;
+        description.speed                   = roamSpeed;
+        description.moveTime                = roamTime;
 
         moveTask.SetDescription(description);
 
