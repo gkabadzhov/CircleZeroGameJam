@@ -795,7 +795,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.726022, y: 1.303848}
+  m_Offset: {x: -0.43822336, y: 1.303848}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -806,7 +806,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.821896, y: 2.6642613}
+  m_Size: {x: 3.2462988, y: 2.6642613}
   m_EdgeRadius: 0
 --- !u!114 &5837656605376414308
 MonoBehaviour:
@@ -884,7 +884,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1d31e86f3537e545808205bffe25c83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PLAYER_MAX_HEALTH: 3
+  PLAYER_MAX_HEALTH: 2
   _health: 0
   _isInvulnerable: 0
   readyToDie: 0
@@ -1016,8 +1016,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   edges:
   - {fileID: 5133712398247585048}
-  minimumForce: 15
-  dashPowerMultiplier: 2
+  minimumForce: 5
+  dashPowerMultiplier: 1.1
   dashTimer: 1.5
 --- !u!1001 &4347743199333537692
 PrefabInstance:
