@@ -1,3 +1,4 @@
+using OTBG.Gameplay.Player.Combat;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -47,6 +48,8 @@ public class AIDashTask : AITaskBase
     {
         controllableRB2D.velocity = Vector3.zero;
 
+        this.GetComponentInParent<HealthController>().SetInvulnerability(true);
+
         StartCoroutine(ForceThrow(direction, dashForce, dashTimer));
     }
     public override bool IsFinished()
@@ -66,7 +69,7 @@ public class AIDashTask : AITaskBase
         controllableRB2D.AddForce(direction * force, ForceMode2D.Impulse);
 
         yield return new WaitForSeconds(timer);
-
+        this.GetComponentInParent<HealthController>().SetInvulnerability(false);
         isFinished = true;
     }
 

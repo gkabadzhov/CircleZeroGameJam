@@ -1,5 +1,8 @@
 using OTBG.Gameplay.Inputs.Interfaces;
+using OTBG.Gameplay.Player.Combat;
+using OTBG.Gameplay.Player.Combat.Data;
 using OTBG.Gameplay.Player.Movement;
+using OTBG.Interfaces;
 using OTBG.Utilities.Data;
 using OTBG.Utilities.General;
 using Sirenix.OdinInspector;
@@ -64,6 +67,7 @@ public class PlayerDash : MonoBehaviour
 
     public void Dash(Vector3 direction, float dashForce)
     {
+        this.GetComponentInParent<HealthController>().SetInvulnerability(true);
         _rb.velocity = Vector3.zero;
         _playerMovement.TriggerForceThrow(direction, dashForce, _dashTimer);
         OnDashDirection?.Invoke(direction);
@@ -78,6 +82,7 @@ public class PlayerDash : MonoBehaviour
 
     public IEnumerator DashCooldown()
     {
+        this.GetComponentInParent<HealthController>().SetInvulnerability(false);
         OnDashStateChanged?.Invoke(true);
         float t = _dashCooldownTimer;
         while(t > 0)
@@ -88,5 +93,19 @@ public class PlayerDash : MonoBehaviour
         }
         OnDashStateChanged?.Invoke(false);
         _dashCoroutine = null;
+    }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("In task type check");
+        if (!collision.transform.TryGetComponent(out IDamageable damageable))
+        {
+            return;
+        }
+
+        Debug.Log("Past finding damageable");
+        damageable.TakeDamage(new DamageData() { damage = 1 });
+
+        //   Destroy(this.gameObject);
     }
 }

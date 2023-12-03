@@ -171,9 +171,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spline: {fileID: 7857431210096990847}
   _pointA: {fileID: 1225473230931949591}
-  timeToTravel: 1.5
+  timeToTravel: 5
+  minimumYeetSpeed: 0
   _pointB: {fileID: 4231705646010670223}
   _sparksVisual: {fileID: 1052681233399690831}
+  _soundManager: {fileID: 0}
 --- !u!1 &8156649023613437963
 GameObject:
   m_ObjectHideFlags: 0
@@ -255,7 +257,7 @@ SpriteRenderer:
   m_Size: {x: 14.6, y: 14.6}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &8908448045157828463

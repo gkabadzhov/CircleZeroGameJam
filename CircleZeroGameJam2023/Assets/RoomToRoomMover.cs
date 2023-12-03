@@ -18,6 +18,9 @@ public class RoomToRoomMover : MonoBehaviour
 
     private Vector3 lastVel;
 
+    [SerializeField]
+    SoundManager _soundManager;
+
     private void Awake()
     {
         _pointA.OnTriggerEnterEvent += _pointA_OnTriggerEnterEvent;
@@ -62,6 +65,7 @@ public class RoomToRoomMover : MonoBehaviour
     public void ToggleSparksVisual(bool isActive)
     {
         _sparksVisual.gameObject.SetActive(isActive);
+        _soundManager.SwapClips();
     }
 }
 
