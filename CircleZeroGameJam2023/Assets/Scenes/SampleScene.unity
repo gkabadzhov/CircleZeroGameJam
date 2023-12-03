@@ -175,31 +175,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1386917694739554066, guid: 7999d3d36042fc64d921a4c2116c7462, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
+    - target: {fileID: 6403959000932267477, guid: 7999d3d36042fc64d921a4c2116c7462, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.1928573
       objectReference: {fileID: 0}
-    - target: {fileID: 2623966770195925323, guid: 7999d3d36042fc64d921a4c2116c7462, type: 3}
-      propertyPath: HorizontalChangeThreshold
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8020900971347532431, guid: 7999d3d36042fc64d921a4c2116c7462, type: 3}
-      propertyPath: HorizontalChangeThreshold
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8440214088941668999, guid: 7999d3d36042fc64d921a4c2116c7462, type: 3}
-      propertyPath: _maxSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8440214088941668999, guid: 7999d3d36042fc64d921a4c2116c7462, type: 3}
-      propertyPath: _acceleration
-      value: 20
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8624415979318902859, guid: 7999d3d36042fc64d921a4c2116c7462, type: 3}
-    - {fileID: 3455014716789607377, guid: 7999d3d36042fc64d921a4c2116c7462, type: 3}
-    m_RemovedGameObjects:
-    - {fileID: 4869210488008331557, guid: 7999d3d36042fc64d921a4c2116c7462, type: 3}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7999d3d36042fc64d921a4c2116c7462, type: 3}
