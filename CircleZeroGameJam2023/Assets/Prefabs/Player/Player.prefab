@@ -237,9 +237,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41b15af2f3092d74e96012cea7688303, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _acceleration: 2
+  _acceleration: 20
   _deceleration: 0.9
-  _maxSpeed: 5
+  _maxSpeed: 10
   _maxFallSpeed: 50
   _movementResistance: 1
   _groundCheckPosition: {fileID: 5972909323372838381}
@@ -1430,6 +1430,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6129268263920850275}
+  - component: {fileID: 1089721748339634518}
   m_Layer: 0
   m_Name: main_char_parts
   m_TagString: Untagged
@@ -1466,6 +1467,27 @@ Transform:
   - {fileID: 8734144778497280680}
   m_Father: {fileID: 8700692976491132427}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1089721748339634518
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5028146765574475008}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e4a5e0e9973d892479e5bbb2fe53ff58, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5151686374372830683
 GameObject:
   m_ObjectHideFlags: 0
@@ -1546,7 +1568,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetDirection: {x: 0, y: 0}
-  HorizontalChangeThreshold: 0.05
+  HorizontalChangeThreshold: 0.3
   _lastAimingRight: 1
 --- !u!1 &5819412504362252961
 GameObject:
@@ -2616,5 +2638,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetDirection: {x: 0, y: 0}
-  HorizontalChangeThreshold: 0.2
+  HorizontalChangeThreshold: 0.3
   _lastAimingRight: 1
