@@ -42,12 +42,12 @@ public class AIMoveTask : AITaskBase
     public override void OnUpdate() 
     {
         controllableRB2D.AddForce(forwardPosition * speed);
-
-        animator.SetFloat("PlayerVelocity", Mathf.Abs(controllableRB2D.velocity.x));
     }
 
     public override bool IsFinished()
     {
+        animator.SetBool("EntityMoving", !finishedTask);
+
         return finishedTask;
     }
 
