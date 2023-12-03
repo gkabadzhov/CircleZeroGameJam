@@ -4,8 +4,5 @@ using UnityEngine;
 
 public class EnemyVision : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject pointOfInterest;
-
     public GameObject PointOfInterest { get; set; }
 }
