@@ -234,7 +234,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   edges:
-  - {fileID: 0}
   - {fileID: 3673119761268991017}
   - {fileID: 4092616342890605701}
 --- !u!1 &743824494683385893
@@ -282,50 +281,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resultState: {fileID: 6349545578243559862}
---- !u!1 &899598387861938720
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 144872480852106913}
-  - component: {fileID: 1901812276813229630}
-  m_Layer: 12
-  m_Name: MoveTask
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &144872480852106913
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 899598387861938720}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 9208185775240471506}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1901812276813229630
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 899598387861938720}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc735a7c4eaf47643b43e42e4a585147, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1469718297949276159
 GameObject:
   m_ObjectHideFlags: 0
@@ -752,7 +707,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 144872480852106913}
   - {fileID: 7115294539649232707}
   - {fileID: 5403067391514229656}
   m_Father: {fileID: 3004187775905828866}
@@ -835,8 +789,8 @@ MonoBehaviour:
   edges:
   - {fileID: 8241906853824747950}
   projectilePrefab: {fileID: 6668476216548309405, guid: 498fd98bb9d12d5469f39c65925b6905, type: 3}
-  speed: 5
-  cooldownTime: 1.5
+  speed: 1.5
+  cooldownTime: 2
   emitter: {fileID: 5108386520941758128}
 --- !u!1 &7837314297964854004
 GameObject:
