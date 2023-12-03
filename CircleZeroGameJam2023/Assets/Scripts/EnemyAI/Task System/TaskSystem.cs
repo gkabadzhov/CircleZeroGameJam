@@ -5,7 +5,7 @@ using UnityEngine;
 public class TaskSystem : MonoBehaviour
 {
     [SerializeField]
-    AITaskBase task;
+    public AITaskBase task;
 
     [SerializeField]
     private bool                currentlyActive = false;
@@ -45,5 +45,10 @@ public class TaskSystem : MonoBehaviour
     public void SetActive(bool value)
     {
         currentlyActive = value;
+    }
+
+    public AITaskBase GetTask()
+    {
+        return task;
     }
 }

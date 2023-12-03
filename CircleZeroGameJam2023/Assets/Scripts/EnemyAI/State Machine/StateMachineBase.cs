@@ -1,3 +1,5 @@
+using OTBG.Gameplay.Player.Combat.Data;
+using OTBG.Interfaces;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -34,4 +36,5 @@ public class StateMachineBase : MonoBehaviour
     {
         currentlyActive = value;
     }
+
 }
