@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class AIController : MonoBehaviour
 {
-    private StateMachineBase    stateMachine;
-    private TaskSystem          taskSystem;
+    private StateMachineBase stateMachine;
+    private TaskSystem taskSystem;
     void Start()
     {
-        stateMachine    = GetComponent<StateMachineBase>();
-        taskSystem      = GetComponent<TaskSystem>();
+        stateMachine = GetComponent<StateMachineBase>();
+        taskSystem = GetComponent<TaskSystem>();
     }
 
     // Update is called once per frame

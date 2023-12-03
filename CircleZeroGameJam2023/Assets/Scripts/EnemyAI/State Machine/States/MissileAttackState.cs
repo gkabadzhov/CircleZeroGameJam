@@ -4,18 +4,40 @@ using UnityEngine;
 
 public class MissileAttackState : StateBase
 {
-    public override void OnStartState()
-    {
-        Debug.Log("MissileAttackState - Start State");
-    }
+    [SerializeField]
+    private Bullet projectilePrefab;
+    [SerializeField]
+    private float speed;
+    [SerializeField]
+    private float cooldownTime;
+    [SerializeField]
+    private Transform emitter;
+
+    private Vector2 direction = Vector2.zero;
 
     public override void OnUpdateState()
     {
-        Debug.Log("MissileAttackState - Update State");
+        direction = vision.PointOfInterest.transform.position - transform.position;
+
+        direction.Normalize();
+
+        AddMissileTask();
     }
 
-    public override void OnLeaveState()
+    private void AddMissileTask()
     {
-        Debug.Log("MissileAttackState - Leave State");
+        AIShootTask shootTask = FindObjectOfType<AIShootTask>();
+
+        AIShootTaskDescription description = new AIShootTaskDescription();
+        description.taskedObject = transform.parent.parent.gameObject;
+        description.direction = direction;
+        description.projectilePrefab = projectilePrefab;
+        description.speed = speed;
+        description.cooldownTime = cooldownTime;
+        description.emitter = emitter;
+
+        shootTask.SetDescription(description);
+
+        taskSystem.PushTask(shootTask);
     }
 }
