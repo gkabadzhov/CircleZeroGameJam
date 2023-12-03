@@ -47,8 +47,6 @@ GameObject:
   - component: {fileID: 8812146760694004796}
   - component: {fileID: 3027213920557237848}
   - component: {fileID: 4269906090073160767}
-  - component: {fileID: 8624415979318902859}
-  - component: {fileID: 3455014716789607377}
   - component: {fileID: 2314806782960768785}
   - component: {fileID: 913670290007188302}
   - component: {fileID: 7724234840033283777}
@@ -181,35 +179,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isGrounded: 0
   _canInfiniteJump: 0
---- !u!114 &8624415979318902859
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 369965273086128072}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cf4d11fdba184f4d96cda6b00c178ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _initialJumpForce: 5
-  _coyoteTime: 0.2
-  _jumpBuffer: 0.1
---- !u!114 &3455014716789607377
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 369965273086128072}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a85e84cea5a7f840b4b658bf40a2e30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _jumpForce: 5
-  _canAirJump: 0
 --- !u!114 &2314806782960768785
 MonoBehaviour:
   m_ObjectHideFlags: 0

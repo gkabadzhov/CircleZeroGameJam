@@ -10,7 +10,8 @@ namespace OTBG.Gameplay.Player
 
         public void Awake()
         {
-            _objectRotator = GetComponentInChildren<RotateWorldObjectToMouse>();
+            if(_objectRotator == null)
+                _objectRotator = GetComponentInChildren<RotateWorldObjectToMouse>();
 
             _objectRotator.OnAimDirectionChanged += _objectRotator_OnAimDirectionChanged;
         }

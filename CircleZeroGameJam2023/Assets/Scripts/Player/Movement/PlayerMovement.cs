@@ -258,5 +258,10 @@ namespace OTBG.Gameplay.Player.Movement
             _normalGravity = modifier.gravity;
             _maxFallSpeed = modifier.maxFallSpeed;
         }
+
+        internal void ForceUpdate()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

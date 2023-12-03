@@ -17,13 +17,15 @@ namespace OTBG.Gameplay.Player
         public static event Action<PlayerController> OnDeinitialised;
 
         private HealthController _healthController;
-
+        private List<SpriteRenderer> _rends = new List<SpriteRenderer>();
         private List<IPlayerInitialisable> _playerInitialisables = new List<IPlayerInitialisable>();
         private List<IDeathHandler> _playerDeathables = new List<IDeathHandler>();
 
         [Button]
         public void Initialise()
         {
+            _rends = GetComponentsInChildren<SpriteRenderer>(true).ToList();
+
             _playerDeathables = GetComponentsInChildren<IDeathHandler>().ToList();
             _playerInitialisables = GetComponentsInChildren<IPlayerInitialisable>().ToList();
             _playerInitialisables.ForEach(i => i.Initialise());
@@ -68,6 +70,22 @@ namespace OTBG.Gameplay.Player
             if (_healthController == null)
                 _healthController = GetComponent<HealthController>();
             return _healthController;
+        }
+
+        public void PortalToggle(bool inPortal)
+        {
+            ToggleVisuals(!inPortal);
+            ToggleLayers(!inPortal);
+        }
+
+        public void ToggleLayers(bool isCollidable)
+        {
+            gameObject.layer = isCollidable ? LayerMask.NameToLayer("Player") : LayerMask.NameToLayer("NoDetection");
+        }
+
+        public void ToggleVisuals(bool isVisible)
+        {
+            _rends.ForEach(r => r.enabled = isVisible);
         }
     }
 }

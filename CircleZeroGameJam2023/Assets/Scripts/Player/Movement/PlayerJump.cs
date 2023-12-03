@@ -1,6 +1,8 @@
 using OTBG.Gameplay.EnvironmentalModifiers.Data;
 using OTBG.Gameplay.EnvironmentalModifiers.Interfaces;
+using OTBG.Gameplay.EnvironmentalModifiers.Logic;
 using OTBG.Gameplay.Inputs.Interfaces;
+using OTBG.Gameplay.Player.Effects.EnvironmentalModifiers;
 using OTBG.Gameplay.Player.Interfaces;
 using OTBG.Gameplay.Player.Movement.Interfaces;
 using OTBG.Utilities.General;
@@ -37,7 +39,6 @@ namespace OTBG.Gameplay.Player.Movement
             _inputDetector.OnReleaseJump += HandleReleaseJump;
             _playerMovement.OnGrounded += OnGroundedChanged;
         }
-
    
         private void OnGroundedChanged(bool isGrounded)
         {
@@ -96,6 +97,14 @@ namespace OTBG.Gameplay.Player.Movement
         public void ApplyModifier(MovementModifier modifier)
         {
             _canInfiniteJump = modifier.canInfinitelyJump;
+        }
+
+        internal void ForceUpdate()
+        {
+            _jumpTypes = GetComponents<IJump>().OrderBy(j => j.Priority).ToArray();
+            _jumpTypes.ToList().ForEach(j => j.Initialise(this));
+            GetComponent<PlayerEnvironmentalModifiersController>().ClearModifier();
+            
         }
     }
 }
