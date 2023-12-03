@@ -806,8 +806,8 @@ MonoBehaviour:
   edges:
   - {fileID: 8241906853824747950}
   projectilePrefab: {fileID: 6668476216548309405, guid: 498fd98bb9d12d5469f39c65925b6905, type: 3}
-  speed: 1.5
-  cooldownTime: 2
+  speed: 0.2
+  cooldownTime: 3
   emitter: {fileID: 5108386520941758128}
 --- !u!1 &7837314297964854004
 GameObject:
