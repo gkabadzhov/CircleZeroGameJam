@@ -9,8 +9,7 @@ public class MovementAbility : PassiveAbility
         base.Activate();
 
         playerJump = FindFirstObjectByType<PlayerJump>(UnityEngine.FindObjectsInactive.Include);
-        playerJump.gameObject.AddComponent<GroundJump>();
-        playerJump.ForceUpdate();
+        playerJump.GetComponent<GroundJump>()._isUnlocked = true;
 
     }
 
@@ -20,19 +19,19 @@ public class MovementAbility : PassiveAbility
         if (currentLevel > 2)
             return;
 
-        playerJump.gameObject.AddComponent<AirJump>();
-        playerJump.ForceUpdate();
+        playerJump.gameObject.GetComponent<AirJump>()._isUnlocked = true;
     }
 
     public override void Deactivate()
     {
         base.Deactivate();
         if (playerJump.TryGetComponent(out GroundJump groundJump))
-            Destroy(groundJump);
+            groundJump._isUnlocked = false;
         if (playerJump.TryGetComponent(out AirJump airJump))
-            Destroy(airJump);
-        playerJump.ForceUpdate();
+            airJump._isUnlocked = false;
     }
+
+    
 }
 
 

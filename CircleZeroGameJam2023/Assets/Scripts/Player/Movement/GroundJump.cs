@@ -27,6 +27,8 @@ namespace OTBG.Gameplay.Player.Movement
 
         private bool _isGrounded;
         private bool _isJumpActive;
+        public bool _isUnlocked;
+        
         void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
@@ -69,6 +71,7 @@ namespace OTBG.Gameplay.Player.Movement
 
         public bool CanJump()
         {
+            if (!_isUnlocked) return false;
             if (_playerJump.CanInfiniteJump) return true;
             return (_coyoteTimeCoroutine != null) || _isGrounded;
         }

@@ -16,7 +16,7 @@ TagManager:
   - Entities
   - Projectiles
   - EnemyProjectiles
-  - 
+  - NoDetection
   - 
   - 
   - 
@@ -49,4 +49,7 @@ TagManager:
     locked: 0
   - name: Gameplay
     uniqueID: 1055427767
+    locked: 0
+  - name: TotalFrontEffects
+    uniqueID: 673408583
     locked: 0

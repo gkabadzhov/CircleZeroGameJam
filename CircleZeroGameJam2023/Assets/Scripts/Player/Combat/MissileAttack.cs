@@ -9,6 +9,7 @@ using UnityEngine.Rendering;
 
 public class MissileAttack : MonoBehaviour
 {
+    public static event Action<float> OnWeaponTimerUpdated;
     public event Action<Vector2> OnWeaponFired;
 
     [FoldoutGroup("References")]
@@ -23,6 +24,8 @@ public class MissileAttack : MonoBehaviour
     [FoldoutGroup("Stats"), SerializeField]
     private float _shotDelay;
     [FoldoutGroup("Stats"), SerializeField]
+    private float _reloadTime;
+    [FoldoutGroup("Stats"), SerializeField]
     private float _knockbackPower;
 
     [FoldoutGroup("Collections"), SerializeField]
@@ -32,8 +35,7 @@ public class MissileAttack : MonoBehaviour
 
     private int _maxAmmo = 2;
     private int _currentAmmo = 0;
-    
-    private bool reloadFlag;
+    public float debugTimer;
 
     private void Awake()
     {
@@ -44,7 +46,7 @@ public class MissileAttack : MonoBehaviour
 
     private void Start()
     {
-        Reload();
+        _currentAmmo = _maxAmmo;
     }
 
     private void OnDestroy()
@@ -145,11 +147,29 @@ public class MissileAttack : MonoBehaviour
     public void ReduceAmmo()
     {
         _currentAmmo--;
+
+        if( _currentAmmo <= 0 )
+        {
+            if(reload_Coroutine == null)
+                reload_Coroutine = StartCoroutine(Reload());
+        }
     }
 
-    public void Reload()
+    Coroutine reload_Coroutine;
+    public IEnumerator Reload()
     {
+        float t = _reloadTime;
+        while(t >= 0)
+        {
+
+            t -= Time.deltaTime;
+            debugTimer = t;
+            OnWeaponTimerUpdated?.Invoke(t);
+            yield return null;
+        }
+        
         _currentAmmo = _maxAmmo;
+        reload_Coroutine = null;
     }
 
     public bool CanFire()

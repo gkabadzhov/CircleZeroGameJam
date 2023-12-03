@@ -99,13 +99,6 @@ namespace OTBG.Gameplay.Player.Movement
             _canInfiniteJump = modifier.canInfinitelyJump;
         }
 
-        internal void ForceUpdate()
-        {
-            _jumpTypes = GetComponents<IJump>().OrderBy(j => j.Priority).ToArray();
-            _jumpTypes.ToList().ForEach(j => j.Initialise(this));
-            GetComponent<PlayerEnvironmentalModifiersController>().ClearModifier();
-            
-        }
     }
 }
 

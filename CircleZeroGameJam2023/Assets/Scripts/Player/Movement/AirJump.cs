@@ -16,6 +16,7 @@ namespace OTBG.Gameplay.Player.Movement
         private PlayerJump _playerJump;
         private Rigidbody2D _rb;
         private bool _isJumpActive;
+        public bool _isUnlocked;
         void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
@@ -34,6 +35,7 @@ namespace OTBG.Gameplay.Player.Movement
 
         public bool CanJump()
         {
+            if (!_isUnlocked) return false;
             return _canAirJump;
         }
 
