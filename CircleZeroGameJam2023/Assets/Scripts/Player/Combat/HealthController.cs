@@ -5,6 +5,7 @@ using OTBG.Utilities.Data;
 using Sirenix.OdinInspector;
 using System;
 using Unity.VisualScripting;
+using UnityEditor.Animations;
 using UnityEngine;
 namespace OTBG.Gameplay.Player.Combat
 {
@@ -20,6 +21,8 @@ namespace OTBG.Gameplay.Player.Combat
         private int _health;
         [SerializeField]
         private bool _isInvulnerable = false;
+
+        public bool readyToDie = false;
 
         private void Awake()
         {
@@ -60,6 +63,11 @@ namespace OTBG.Gameplay.Player.Combat
         private void Die()
         {
             Debug.Log("in die");
+            readyToDie = true;
+            this.GetComponent<Rigidbody2D>().isKinematic = true;
+            this.GetComponentInChildren<Animator>().enabled = false;
+            Destroy(this.gameObject, 1f);
+            //Destroy(this.gameObject);
             OnDeath?.Invoke();
         }
 
@@ -78,7 +86,7 @@ namespace OTBG.Gameplay.Player.Combat
 
         void IDeathHandler.OnDeath()
         {
-            
+            Debug.Log("blabla");
         }
 
         public void OnRevive()

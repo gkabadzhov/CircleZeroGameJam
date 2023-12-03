@@ -515,6 +515,7 @@ GameObject:
   - component: {fileID: 9204149859405793052}
   - component: {fileID: 1968626956517183638}
   - component: {fileID: 4954801975086506310}
+  - component: {fileID: 7301127808193497132}
   m_Layer: 12
   m_Name: NPC_Ranged
   m_TagString: Untagged
@@ -678,6 +679,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   task: {fileID: 0}
   currentlyActive: 0
+--- !u!114 &7301127808193497132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5503012036204255210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1d31e86f3537e545808205bffe25c83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PLAYER_MAX_HEALTH: 2
+  _health: 0
+  _isInvulnerable: 0
+  readyToDie: 0
 --- !u!1 &5590586875040801763
 GameObject:
   m_ObjectHideFlags: 0
@@ -1090,7 +1107,30 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: 30d637a64a3270a49ac77a5f68fb09d8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7677916917759948158}
+    - targetCorrespondingSourceObject: {fileID: 7643717834654495379, guid: 30d637a64a3270a49ac77a5f68fb09d8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4696255907651024836}
   m_SourcePrefab: {fileID: 4843985084834002234, guid: 30d637a64a3270a49ac77a5f68fb09d8, type: 3}
+--- !u!1 &1207631524632675017 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7643717834654495379, guid: 30d637a64a3270a49ac77a5f68fb09d8, type: 3}
+  m_PrefabInstance: {fileID: 8850046772705063002}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4696255907651024836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1207631524632675017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26fc1f81ca5cd3d45988b3864478de0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materials:
+  - {fileID: 2100000, guid: 797caadd714520249a2c781d9035641f, type: 2}
+  - {fileID: 2100000, guid: b2c13f5961fff5b469784ae0fa708283, type: 2}
 --- !u!4 &7925905080433805700 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -7552582706839291426, guid: 30d637a64a3270a49ac77a5f68fb09d8, type: 3}
