@@ -20,6 +20,11 @@ public class PlayerPassiveManager : MonoBehaviour
     private Coroutine abilityTimerCoroutine;
     [SerializeField]
     private float debugTimer;
+    private void Start()
+    {
+        OnAbilityUpdated?.Invoke(null);
+    }
+
     [Button]
     public void PickupAbility(AbilityTypes abilityType)
     {

@@ -12,7 +12,7 @@ public class RoomToRoomMover : MonoBehaviour
     public SubscribablePhysics2D _pointA;
 
     public float timeToTravel;
-
+    public float minimumYeetSpeed;
     public Transform _pointB;
     public Transform _sparksVisual;
 
@@ -54,7 +54,8 @@ public class RoomToRoomMover : MonoBehaviour
         playerController.transform.position = _pointB.position;
         ToggleSparksVisual(false);
         playerController.PortalToggle(false);
-        playerController.GetComponent<Rigidbody2D>().velocity = lastVel;
+        Vector3 yeetVel = lastVel.normalized * Mathf.Max(lastVel.magnitude, minimumYeetSpeed);
+        playerController.GetComponent<Rigidbody2D>().velocity = yeetVel;
         lastVel = Vector3.zero;
     }
 

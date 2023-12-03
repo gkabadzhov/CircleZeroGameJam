@@ -1,12 +1,16 @@
 using OTBG.Gameplay.Inputs.Interfaces;
 using OTBG.Gameplay.Player.Movement;
+using OTBG.Utilities.Data;
 using OTBG.Utilities.General;
 using Sirenix.OdinInspector;
+using System;
 using System.Collections;
 using UnityEngine;
 
 public class PlayerDash : MonoBehaviour
 {
+    public static event Action<ValueChange> OnDashCooldownChanged;
+
     private PlayerMovement _playerMovement;
     private Camera _cam;
     private Rigidbody2D _rb;
@@ -72,7 +76,13 @@ public class PlayerDash : MonoBehaviour
 
     public IEnumerator DashCooldown()
     {
-        yield return new WaitForSeconds(_dashCooldownTimer);
+        float t = _dashCooldownTimer;
+        while(t > 0)
+        {
+            t -= Time.deltaTime;
+            OnDashCooldownChanged?.Invoke(new ValueChange(t,_dashCooldownTimer));
+            yield return null;
+        }
         _dashCoroutine = null;
     }
 }

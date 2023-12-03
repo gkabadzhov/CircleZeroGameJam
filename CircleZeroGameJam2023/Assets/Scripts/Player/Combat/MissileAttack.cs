@@ -1,5 +1,6 @@
 using OTBG.Gameplay.Player;
 using OTBG.Gameplay.Player.Movement;
+using OTBG.Utilities.Data;
 using Sirenix.OdinInspector;
 using System;
 using System.Collections;
@@ -9,7 +10,7 @@ using UnityEngine.Rendering;
 
 public class MissileAttack : MonoBehaviour
 {
-    public static event Action<float> OnWeaponTimerUpdated;
+    public static event Action<ValueChange> OnWeaponTimerUpdated;
     public event Action<Vector2> OnWeaponFired;
 
     [FoldoutGroup("References")]
@@ -164,7 +165,7 @@ public class MissileAttack : MonoBehaviour
 
             t -= Time.deltaTime;
             debugTimer = t;
-            OnWeaponTimerUpdated?.Invoke(t);
+            OnWeaponTimerUpdated?.Invoke(new ValueChange(t, _reloadTime));
             yield return null;
         }
         

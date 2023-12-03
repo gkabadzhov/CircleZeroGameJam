@@ -299,7 +299,7 @@ MonoBehaviour:
   allAbilities:
   - {fileID: 1630297121051143341, guid: 57406d078f0c1474787a81317281562c, type: 3}
   - {fileID: 7892632059489773082, guid: e0e6f438db9125a46a32932d8c423048, type: 3}
-  maxAbilityTime: 5
+  maxAbilityTime: 10
   debugTimer: 0
 --- !u!114 &4592085701356289929
 MonoBehaviour:
@@ -2069,11 +2069,13 @@ MonoBehaviour:
   projectilePrefab: {fileID: 6668476216548309405, guid: 7926aff7639273148a49a98ee80b68c1, type: 3}
   _abilityLevel: 1
   _shotDelay: 0.2
+  _reloadTime: 0
   _knockbackPower: 20
   spawnLocations:
   - {fileID: 6472885216000086779}
   - {fileID: 1232169335453872488}
   - {fileID: 835216166559033478}
+  debugTimer: 0
 --- !u!1 &8239760708253930735
 GameObject:
   m_ObjectHideFlags: 0
