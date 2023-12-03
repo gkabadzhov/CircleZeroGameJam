@@ -185,7 +185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resultState: {fileID: 1652724943760548128}
-  radius: 30
+  radius: 20
   layer:
     serializedVersion: 2
     m_Bits: 128
