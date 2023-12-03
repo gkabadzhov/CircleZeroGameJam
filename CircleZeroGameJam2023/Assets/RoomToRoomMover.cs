@@ -4,9 +4,12 @@ using OTBG.Utilities.General;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class RoomToRoomMover : MonoBehaviour
 {
+    public UnityEvent OnRoomMovedTo;
+
     public SplineComputer _spline;
 
     public SubscribablePhysics2D _pointA;
@@ -60,6 +63,7 @@ public class RoomToRoomMover : MonoBehaviour
         Vector3 yeetVel = lastVel.normalized * Mathf.Max(lastVel.magnitude, minimumYeetSpeed);
         playerController.GetComponent<Rigidbody2D>().velocity = yeetVel;
         lastVel = Vector3.zero;
+        OnRoomMovedTo?.Invoke();
     }
 
     public void ToggleSparksVisual(bool isActive)
