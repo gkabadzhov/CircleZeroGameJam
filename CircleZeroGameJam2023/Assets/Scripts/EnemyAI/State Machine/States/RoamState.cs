@@ -8,6 +8,8 @@ public class RoamState : StateBase
     private float roamSpeed = 1.0f;
     [SerializeField]
     private float roamTime = 1.0f;
+    [SerializeField]
+    private AIMoveTask moveTask;
 
     Vector2 roamPosition = Vector2.left;
 
@@ -20,7 +22,7 @@ public class RoamState : StateBase
 
     private void AddMoveTask()
     {
-        AIMoveTask moveTask = FindObjectOfType<AIMoveTask>();
+        if (moveTask == null) return;
 
         AIMoveTaskDescription description   = new AIMoveTaskDescription();
         description.taskedObject            = transform.parent.parent.gameObject;

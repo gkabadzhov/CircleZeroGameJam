@@ -48,6 +48,7 @@ MonoBehaviour:
   - {fileID: 5240597924818322193}
   roamSpeed: 1
   roamTime: 1.5
+  moveTask: {fileID: 5780194153777036085}
 --- !u!1 &2859917303567883809
 GameObject:
   m_ObjectHideFlags: 0
@@ -338,6 +339,7 @@ MonoBehaviour:
   minimumForce: 15
   dashPowerMultiplier: 2
   dashTimer: 1.5
+  dashTask: {fileID: 0}
 --- !u!114 &302183816024279025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -368,6 +370,7 @@ MonoBehaviour:
   speed: 0
   cooldownTime: 0
   emitter: {fileID: 0}
+  shootTask: {fileID: 0}
 --- !u!114 &3216949330367249525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -383,6 +386,7 @@ MonoBehaviour:
   edges: []
   moveSpeed: 1
   moveTime: 1
+  moveTask: {fileID: 0}
 --- !u!114 &1343083004807742313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -398,6 +402,7 @@ MonoBehaviour:
   edges: []
   roamSpeed: 1
   roamTime: 1
+  moveTask: {fileID: 0}
 --- !u!1 &3903747324254924559
 GameObject:
   m_ObjectHideFlags: 0
@@ -523,6 +528,7 @@ MonoBehaviour:
   - {fileID: 5133712398247585048}
   moveSpeed: 2
   moveTime: 1.5
+  moveTask: {fileID: 5780194153777036085}
 --- !u!1 &4703766350543813829
 GameObject:
   m_ObjectHideFlags: 0
@@ -705,9 +711,9 @@ GameObject:
   - component: {fileID: 2618723646961620925}
   - component: {fileID: 5837656605376414308}
   - component: {fileID: 8772020545857954149}
-  - component: {fileID: 5961726000369908809}
   - component: {fileID: 8277657716019369049}
   - component: {fileID: 6909749001326795033}
+  - component: {fileID: 5961726000369908809}
   - component: {fileID: 3307723103589462164}
   m_Layer: 12
   m_Name: NPC_Melee
@@ -832,18 +838,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fd14b3eb9f2a364b907fc428bbc4108, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5961726000369908809
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7469551572084182390}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5747f6b8f3d9c7a4c840dfd8eaab69dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &8277657716019369049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -872,6 +866,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   task: {fileID: 0}
   currentlyActive: 0
+--- !u!114 &5961726000369908809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7469551572084182390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5747f6b8f3d9c7a4c840dfd8eaab69dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &3307723103589462164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1019,6 +1025,7 @@ MonoBehaviour:
   minimumForce: 5
   dashPowerMultiplier: 1.1
   dashTimer: 1.5
+  dashTask: {fileID: 3922654363213306425}
 --- !u!1001 &4347743199333537692
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -46,8 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   edges:
   - {fileID: 1017752633897870697}
-  roamSpeed: 1
+  roamSpeed: 5
   roamTime: 2
+  moveTask: {fileID: 6715618446024329006}
 --- !u!1 &448178981444323976
 GameObject:
   m_ObjectHideFlags: 0
@@ -138,8 +139,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   edges:
   - {fileID: 8241906853824747950}
-  flySpeed: 1.5
-  flyTime: 1.5
+  flySpeed: 4
+  flyTime: 2
+  moveTask: {fileID: 6715618446024329006}
 --- !u!1 &517045967755954752
 GameObject:
   m_ObjectHideFlags: 0
@@ -512,9 +514,9 @@ GameObject:
   - component: {fileID: 5471242443923401596}
   - component: {fileID: 6880475167558161487}
   - component: {fileID: 5578674129292750730}
-  - component: {fileID: 9204149859405793052}
   - component: {fileID: 1968626956517183638}
   - component: {fileID: 4954801975086506310}
+  - component: {fileID: 9204149859405793052}
   - component: {fileID: 7301127808193497132}
   m_Layer: 12
   m_Name: NPC_Ranged
@@ -639,18 +641,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fd14b3eb9f2a364b907fc428bbc4108, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &9204149859405793052
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5503012036204255210}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5747f6b8f3d9c7a4c840dfd8eaab69dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1968626956517183638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -679,6 +669,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   task: {fileID: 0}
   currentlyActive: 0
+--- !u!114 &9204149859405793052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5503012036204255210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5747f6b8f3d9c7a4c840dfd8eaab69dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &7301127808193497132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -809,6 +811,7 @@ MonoBehaviour:
   speed: 0.2
   cooldownTime: 3
   emitter: {fileID: 5108386520941758128}
+  shootTask: {fileID: 395656024090370575}
 --- !u!1 &7837314297964854004
 GameObject:
   m_ObjectHideFlags: 0
@@ -960,6 +963,7 @@ MonoBehaviour:
   minimumForce: 15
   dashPowerMultiplier: 2
   dashTimer: 1.5
+  dashTask: {fileID: 0}
 --- !u!114 &3665070363682216062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -990,6 +994,7 @@ MonoBehaviour:
   speed: 0
   cooldownTime: 0
   emitter: {fileID: 0}
+  shootTask: {fileID: 0}
 --- !u!114 &8765328594807853128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1005,6 +1010,7 @@ MonoBehaviour:
   edges: []
   moveSpeed: 1
   moveTime: 1
+  moveTask: {fileID: 0}
 --- !u!114 &2174054731055813923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1020,6 +1026,7 @@ MonoBehaviour:
   edges: []
   roamSpeed: 1
   roamTime: 1
+  moveTask: {fileID: 0}
 --- !u!1001 &8850046772705063002
 PrefabInstance:
   m_ObjectHideFlags: 0

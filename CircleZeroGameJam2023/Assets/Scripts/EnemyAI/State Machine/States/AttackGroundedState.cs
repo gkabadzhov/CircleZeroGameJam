@@ -10,6 +10,8 @@ public class AttackGroundedState : StateBase
     private float dashPowerMultiplier = 2.0f;
     [SerializeField]
     private float dashTimer = 1.5f;
+    [SerializeField]
+    private AIDashTask dashTask;
 
     private Vector2 direction = Vector2.zero;
 
@@ -26,7 +28,7 @@ public class AttackGroundedState : StateBase
 
     private void AddDashTask()
     {
-        AIDashTask dashTask = FindObjectOfType<AIDashTask>();
+        if (dashTask == null) return;
 
         AIDashTaskDescription description = new AIDashTaskDescription();
         description.taskedObject = transform.parent.parent.gameObject;
