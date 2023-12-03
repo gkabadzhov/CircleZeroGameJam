@@ -51,6 +51,8 @@ public class AIDashTask : AITaskBase
     }
     public override bool IsFinished()
     {
+        animator.SetBool("EntityDashing", controllableRB2D.velocity.x <= 0.0f);
+
         return isFinished;
     }
 
@@ -62,6 +64,7 @@ public class AIDashTask : AITaskBase
     public IEnumerator ForceThrow(Vector2 direction, float force, float timer = 0)
     {
         controllableRB2D.AddForce(direction * force, ForceMode2D.Impulse);
+
         yield return new WaitForSeconds(timer);
 
         isFinished = true;

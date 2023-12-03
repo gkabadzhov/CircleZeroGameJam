@@ -47,7 +47,7 @@ MonoBehaviour:
   edges:
   - {fileID: 5240597924818322193}
   roamSpeed: 1
-  roamTime: 2
+  roamTime: 1.5
 --- !u!1 &2859917303567883809
 GameObject:
   m_ObjectHideFlags: 0
@@ -521,8 +521,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   edges:
   - {fileID: 5133712398247585048}
-  moveSpeed: 1
-  moveTime: 1
+  moveSpeed: 2
+  moveTime: 1.5
 --- !u!1 &4703766350543813829
 GameObject:
   m_ObjectHideFlags: 0
@@ -794,7 +794,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.53914833, y: 1.303848}
+  m_Offset: {x: -0.726022, y: 1.303848}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -805,7 +805,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.4481487, y: 2.6642613}
+  m_Size: {x: 3.821896, y: 2.6642613}
   m_EdgeRadius: 0
 --- !u!114 &5837656605376414308
 MonoBehaviour:
@@ -915,8 +915,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe9f5bb3d5b8a4345bde2f32a1f5d5b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resultState: {fileID: 5480558002866967258}
-  meleeDistance: 10
+  resultState: {fileID: 8218305570715456392}
+  meleeDistance: 20
 --- !u!1 &9160644926074160666
 GameObject:
   m_ObjectHideFlags: 0
@@ -962,7 +962,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7146803779283052608}
-  - component: {fileID: 5480558002866967258}
+  - component: {fileID: 8218305570715456392}
   m_Layer: 12
   m_Name: AttackState
   m_TagString: Untagged
@@ -985,7 +985,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5426770697122553122}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5480558002866967258
+--- !u!114 &8218305570715456392
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -994,7 +994,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 9187390517132481047}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 954b814f06657a54990c02f28420806b, type: 3}
+  m_Script: {fileID: 11500000, guid: f0217e1f3ad80dc4291b94d62c3d2625, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   edges:

@@ -60,6 +60,7 @@ namespace OTBG.Gameplay.Player
 
         private void OnDestroy()
         {
+            Destroy(this.gameObject);
             _healthController.OnDeath -= _healthController_OnDeath;
             OnDeinitialised?.Invoke(this);
         }

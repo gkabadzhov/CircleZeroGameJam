@@ -17,7 +17,7 @@ public class MissileAttackState : StateBase
 
     public override void OnUpdateState()
     {
-        direction = vision.PointOfInterest.transform.position - transform.position;
+        direction = (vision.PointOfInterest.transform.position + Vector3.up) - emitter.position;
 
         direction.Normalize();
 

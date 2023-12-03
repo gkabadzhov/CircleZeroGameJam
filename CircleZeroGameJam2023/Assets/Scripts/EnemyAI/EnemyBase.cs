@@ -10,14 +10,18 @@ public class EnemyBase : EntityBase
         rb2d = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         ResolveLookDirection();
     }
 
     private void ResolveLookDirection()
     {
-        transform.localScale = new Vector3(Mathf.Sign(rb2d.velocity.x), 1, 1);
+        if (rb2d == null || Mathf.Abs(rb2d.velocity.x) <= 0.01f)
+        {
+            return;
+        }
+
+        transform.localScale = new Vector3(-Mathf.Sign(rb2d.velocity.x), 1, 1);
     }
 }

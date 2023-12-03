@@ -10,14 +10,15 @@ namespace OTBG.Gameplay.Player.Combat
 {
     public class HealthController : MonoBehaviour, IDamageable, IDeathHandler
     {
-        public const int PLAYER_MAX_HEALTH = 1;
+        public int PLAYER_MAX_HEALTH = 1;
 
         public event Action<ValueChange> HealthChanged;
         public event Action OnDeath;
         public event Action OnPreDamage;
 
+        [SerializeField]
         private int _health;
-
+        [SerializeField]
         private bool _isInvulnerable = false;
 
         private void Awake()
@@ -58,6 +59,7 @@ namespace OTBG.Gameplay.Player.Combat
 
         private void Die()
         {
+            Debug.Log("in die");
             OnDeath?.Invoke();
         }
 
