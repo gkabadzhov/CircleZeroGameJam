@@ -8,6 +8,8 @@ public class MoveState : StateBase
     private float moveSpeed = 1.0f;
     [SerializeField]
     private float moveTime = 1.0f;
+    [SerializeField]
+    private AIMoveTask moveTask;
 
     private Vector2 direction = Vector2.zero;
 
@@ -24,7 +26,7 @@ public class MoveState : StateBase
 
     private void AddMoveTask()
     {
-        AIMoveTask moveTask = FindObjectOfType<AIMoveTask>();
+        if (moveTask == null) return;
 
         AIMoveTaskDescription description = new AIMoveTaskDescription();
         description.taskedObject = transform.parent.parent.gameObject;

@@ -12,6 +12,8 @@ public class MissileAttackState : StateBase
     private float cooldownTime;
     [SerializeField]
     private Transform emitter;
+    [SerializeField]
+    private AIShootTask shootTask;
 
     private Vector2 direction = Vector2.zero;
 
@@ -26,7 +28,7 @@ public class MissileAttackState : StateBase
 
     private void AddMissileTask()
     {
-        AIShootTask shootTask = FindObjectOfType<AIShootTask>();
+        if (shootTask == null) return;
 
         AIShootTaskDescription description = new AIShootTaskDescription();
         description.taskedObject = transform.parent.parent.gameObject;

@@ -18,6 +18,11 @@ public class AbilityGiver : MonoBehaviour
     {
         FindFirstObjectByType<PlayerPassiveManager>().PickupAbility(abilityType);
     }
+
+    public void OnDestroy()
+    {
+        healthController.OnDeath -= OnDeath;
+    }
 }
 
 

@@ -90,9 +90,9 @@ GameObject:
   - component: {fileID: 192690799637930212}
   - component: {fileID: 6053467773667888714}
   - component: {fileID: 8245942604581373749}
-  - component: {fileID: 7886975220317381719}
   - component: {fileID: 1044089885428910189}
   - component: {fileID: 4825869581574032132}
+  - component: {fileID: 7886975220317381719}
   - component: {fileID: 8628892049572178250}
   m_Layer: 0
   m_Name: NPC_Fast
@@ -217,18 +217,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fd14b3eb9f2a364b907fc428bbc4108, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7886975220317381719
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1637950155144664424}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5747f6b8f3d9c7a4c840dfd8eaab69dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1044089885428910189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,6 +245,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   task: {fileID: 0}
   currentlyActive: 0
+--- !u!114 &7886975220317381719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637950155144664424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5747f6b8f3d9c7a4c840dfd8eaab69dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8628892049572178250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -344,6 +344,7 @@ MonoBehaviour:
   minimumForce: 15
   dashPowerMultiplier: 2
   dashTimer: 1.5
+  dashTask: {fileID: 0}
 --- !u!114 &483724301918978926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -374,6 +375,7 @@ MonoBehaviour:
   speed: 0
   cooldownTime: 0
   emitter: {fileID: 0}
+  shootTask: {fileID: 0}
 --- !u!114 &8217686526059719367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -389,6 +391,7 @@ MonoBehaviour:
   edges: []
   moveSpeed: 1
   moveTime: 1
+  moveTask: {fileID: 0}
 --- !u!114 &2377462079424341498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -404,6 +407,7 @@ MonoBehaviour:
   edges: []
   roamSpeed: 1
   roamTime: 1
+  moveTask: {fileID: 0}
 --- !u!1 &2134658455919418984
 GameObject:
   m_ObjectHideFlags: 0
@@ -452,6 +456,7 @@ MonoBehaviour:
   - {fileID: 4990301499885406570}
   roamSpeed: 1
   roamTime: 2
+  moveTask: {fileID: 6360271089071531400}
 --- !u!1 &3545496371558030119
 GameObject:
   m_ObjectHideFlags: 0
@@ -497,7 +502,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resultState: {fileID: 7131472950128974567}
-  radius: 30
+  radius: 20
   layer:
     serializedVersion: 2
     m_Bits: 128
@@ -594,6 +599,7 @@ MonoBehaviour:
   - {fileID: 2835574802686765299}
   moveSpeed: 1
   moveTime: 1
+  moveTask: {fileID: 6360271089071531400}
 --- !u!1 &5188049255606588652
 GameObject:
   m_ObjectHideFlags: 0
@@ -973,6 +979,7 @@ MonoBehaviour:
   minimumForce: 15
   dashPowerMultiplier: 2
   dashTimer: 1.5
+  dashTask: {fileID: 3417135427038341717}
 --- !u!1 &9068264962314131483
 GameObject:
   m_ObjectHideFlags: 0
@@ -1177,9 +1184,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4519537183621174618, guid: 1ecec4166e6aee1418061c5a22c8dad7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3638756381081376941}
-    - targetCorrespondingSourceObject: {fileID: 4519537183621174618, guid: 1ecec4166e6aee1418061c5a22c8dad7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4450005319253134908}
     - targetCorrespondingSourceObject: {fileID: -8216702497177813165, guid: 1ecec4166e6aee1418061c5a22c8dad7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8589787304374087601}
@@ -1480,16 +1484,3 @@ MonoBehaviour:
   materials:
   - {fileID: 2100000, guid: 797caadd714520249a2c781d9035641f, type: 2}
   - {fileID: 2100000, guid: b2c13f5961fff5b469784ae0fa708283, type: 2}
---- !u!114 &4450005319253134908
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9029638393899132464}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26fc1f81ca5cd3d45988b3864478de0b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  materials: []
