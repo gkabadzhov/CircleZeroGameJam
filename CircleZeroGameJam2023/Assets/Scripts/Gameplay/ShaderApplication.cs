@@ -10,9 +10,9 @@ public class ShaderApplication : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        if(materials.Count == 0) return;
-
-        this.GetComponent<SpriteRenderer>().material = materials[0];
+        if (materials != null) {  
+            this.GetComponent<SpriteRenderer>().material = materials[0];
+        }
     }
 
     // Update is called once per frame

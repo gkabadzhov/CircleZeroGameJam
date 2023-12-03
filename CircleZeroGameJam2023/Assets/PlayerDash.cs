@@ -32,6 +32,8 @@ public class PlayerDash : MonoBehaviour
     [FoldoutGroup("Cooldown"), SerializeField]
     private float _dashCooldownTimer;
 
+    public bool inDash = false;
+
     private void Awake()
     {
         _playerMovement = GetComponent<PlayerMovement>();
@@ -53,8 +55,10 @@ public class PlayerDash : MonoBehaviour
 
     private void OnRightMouseButtonPressed()
     {
-        if (_dashCoroutine != null)
+        if (_dashCoroutine != null) {
+            inDash = false;
             return;
+        }
 
         float dashForce = GetDashForce();
 
@@ -67,6 +71,7 @@ public class PlayerDash : MonoBehaviour
 
     public void Dash(Vector3 direction, float dashForce)
     {
+        inDash = true;
         this.GetComponentInParent<HealthController>().SetInvulnerability(true);
         _rb.velocity = Vector3.zero;
         _playerMovement.TriggerForceThrow(direction, dashForce, _dashTimer);
@@ -97,15 +102,18 @@ public class PlayerDash : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("In task type check");
-        if (!collision.transform.TryGetComponent(out IDamageable damageable))
+        if (inDash)
         {
-            return;
+            Debug.Log("In task type check");
+            if (!collision.transform.TryGetComponent(out IDamageable damageable))
+            {
+                return;
+            }
+
+            Debug.Log("Past finding damageable");
+            damageable.TakeDamage(new DamageData() { damage = 1 });
+
+            //   Destroy(this.gameObject);
         }
-
-        Debug.Log("Past finding damageable");
-        damageable.TakeDamage(new DamageData() { damage = 1 });
-
-        //   Destroy(this.gameObject);
     }
 }

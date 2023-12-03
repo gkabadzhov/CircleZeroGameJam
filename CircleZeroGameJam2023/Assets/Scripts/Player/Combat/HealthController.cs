@@ -64,10 +64,20 @@ namespace OTBG.Gameplay.Player.Combat
         {
             Debug.Log("in die");
             readyToDie = true;
-            this.GetComponent<Rigidbody2D>().isKinematic = true;
-            this.GetComponentInChildren<Animator>().enabled = false;
-            Destroy(this.gameObject, 1f);
-            //Destroy(this.gameObject);
+
+            if (gameObject.tag == "Player")
+            {
+                GetComponent<PlayerController>().Respawn();
+                SetHealth(PLAYER_MAX_HEALTH);
+                readyToDie = false;
+            } 
+            else 
+            { 
+                this.GetComponent<Rigidbody2D>().isKinematic = true;
+                this.GetComponentInChildren<Animator>().enabled = false;
+                Destroy(this.gameObject, 1f);
+                    //Destroy(this.gameObject);
+            }
             OnDeath?.Invoke();
         }
 

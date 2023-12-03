@@ -12,9 +12,11 @@ namespace OTBG.Gameplay.Player
     [RequireComponent(typeof(HealthController))]
     public class PlayerController : MonoBehaviour
     {
-        public static event Action<PlayerController> OnDeath;
+        //public static event Action<PlayerController> OnDeath;
         public static event Action<PlayerController> OnInitialised;
         public static event Action<PlayerController> OnDeinitialised;
+
+        public Vector3 respawnLocation;
 
         private HealthController _healthController;
         private List<SpriteRenderer> _rends = new List<SpriteRenderer>();
@@ -50,7 +52,7 @@ namespace OTBG.Gameplay.Player
         {
             _playerDeathables.ForEach(d => d.OnDeath());
             yield return new WaitForSeconds(1);
-            OnDeath?.Invoke(this);
+            //OnDeath?.Invoke(this);
         }
 
         private void _healthController_OnDeath()
@@ -60,7 +62,7 @@ namespace OTBG.Gameplay.Player
 
         private void OnDestroy()
         {
-            Destroy(this.gameObject);
+
             _healthController.OnDeath -= _healthController_OnDeath;
             OnDeinitialised?.Invoke(this);
         }
@@ -87,6 +89,18 @@ namespace OTBG.Gameplay.Player
         public void ToggleVisuals(bool isVisible)
         {
             _rends.ForEach(r => r.enabled = isVisible);
+        }
+
+        public void SetRespawnLocation(Vector3 loc)
+        {
+            respawnLocation = loc;
+        }
+
+        public void Respawn()
+        {
+            Debug.Log(gameObject.transform.position + " in respawn " + respawnLocation);
+            gameObject.transform.position = respawnLocation;
+
         }
     }
 }
