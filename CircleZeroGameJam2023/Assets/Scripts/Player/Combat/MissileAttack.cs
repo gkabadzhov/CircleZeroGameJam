@@ -32,6 +32,9 @@ public class MissileAttack : MonoBehaviour
     [FoldoutGroup("Collections"), SerializeField]
     private List<Transform> spawnLocations = new List<Transform>();
 
+    [SerializeField]
+    SoundController soundController;
+
     private Coroutine _shotDelayCoroutine;
 
     private int _maxAmmo = 2;
@@ -143,6 +146,8 @@ public class MissileAttack : MonoBehaviour
     {
         Bullet bulletInstance = Instantiate(projectilePrefab, baseTransform.position, baseTransform.rotation);
         bulletInstance.BulletInit(_rotator._lastAimingRight? baseTransform.right:-baseTransform.right, player.GetRB().velocity.magnitude * 1.2f);
+
+        soundController.TriggerShootClip();
     }
 
     public void ReduceAmmo()
