@@ -10,6 +10,8 @@ using UnityEngine;
 public class PlayerDash : MonoBehaviour
 {
     public static event Action<ValueChange> OnDashCooldownChanged;
+    public static event Action<bool> OnDashStateChanged;
+    public static event Action<Vector3> OnDashDirection;
 
     private PlayerMovement _playerMovement;
     private Camera _cam;
@@ -64,7 +66,7 @@ public class PlayerDash : MonoBehaviour
     {
         _rb.velocity = Vector3.zero;
         _playerMovement.TriggerForceThrow(direction, dashForce, _dashTimer);
-
+        OnDashDirection?.Invoke(direction);
         _dashCoroutine = StartCoroutine(DashCooldown());
     }
 
@@ -76,6 +78,7 @@ public class PlayerDash : MonoBehaviour
 
     public IEnumerator DashCooldown()
     {
+        OnDashStateChanged?.Invoke(true);
         float t = _dashCooldownTimer;
         while(t > 0)
         {
@@ -83,6 +86,7 @@ public class PlayerDash : MonoBehaviour
             OnDashCooldownChanged?.Invoke(new ValueChange(t,_dashCooldownTimer));
             yield return null;
         }
+        OnDashStateChanged?.Invoke(false);
         _dashCoroutine = null;
     }
 }
