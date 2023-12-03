@@ -155,7 +155,7 @@ namespace OTBG.Gameplay.Player.Movement
         public void OnDeath() 
         {
             _isOverridden = true;
-            _rb.isKinematic = true;
+           // _rb.isKinematic = true;
             _rb.simulated = false;
         }
         public void OnRevive()

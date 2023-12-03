@@ -34,6 +34,9 @@ public class RoomToRoomMover : MonoBehaviour
         if (!obj.transform.TryGetComponent(out PlayerController playerController))
             return;
 
+        Vector3 respawnPoint = gameObject.transform.position;
+
+        playerController.SetRespawnLocation(respawnPoint);
         playerController.PortalToggle(true);
         Rigidbody2D playerRB = playerController.GetComponent<Rigidbody2D>();
         lastVel = playerRB.velocity;
