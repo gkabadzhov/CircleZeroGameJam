@@ -4,7 +4,15 @@ using UnityEngine;
 
 public class AITaskBase : MonoBehaviour
 {
+    protected Animator animator;
+
+    private void Start()
+    {
+        animator = FindObjectOfType<Animator>();
+    }
+
     private bool taskStarted = false;
+    
     public virtual void OnStart() 
     {
         taskStarted = true;
