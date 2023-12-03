@@ -4,6 +4,7 @@ using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -31,5 +32,10 @@ public class GameManager : MonoBehaviour
 
         if (_playerCamera.Follow == null)
             _playerCamera.Follow = _player.transform;
+    }
+
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
